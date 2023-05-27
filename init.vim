@@ -2,7 +2,7 @@ set runtimepath^=~/vimfiles runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
 " modules
-exec 'source' glob(stdpath('config') . '/modules/vim-tree.vim')
+"exec 'source' glob(stdpath('config') . '/modules/vim-tree.vim')
 
 " vim-plug
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -11,7 +11,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-let g:python3_host_prog = 'C:\Users\ypascoet\AppData\Local\Programs\Python\Python310\Python.exe'
+let g:python3_host_prog = '/usr/bin/python3'
 "let g:loaded_python3_provider = 0
 
 set nocompatible            " disable compatibility to old-time vi
@@ -43,6 +43,7 @@ set ttyfast                 " Speed up scrolling in Vim
 set relativenumber
 set rnu
 
+nnoremap <C-n> <cmd>CHADopen<cr>
 
 call plug#begin('~/.vim/plugged')
  Plug 'dracula/vim'
@@ -57,10 +58,11 @@ call plug#begin('~/.vim/plugged')
  Plug 'dense-analysis/ale'
  Plug 'EdenEast/nightfox.nvim'
  Plug 'kyazdani42/nvim-web-devicons' " for file icons
- Plug 'kyazdani42/nvim-tree.lua'
+ "Plug 'kyazdani42/nvim-tree.lua'
  Plug 'nvim-lualine/lualine.nvim'
  Plug 'sheerun/vim-polyglot'
  Plug 'jiangmiao/auto-pairs'
+ Plug 'ms-jpq/chadtree', { 'branch' : 'chad', 'do' : 'python3 -m chadtree deps' }
 call plug#end()
 
 "colorscheme
